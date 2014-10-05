@@ -14,11 +14,16 @@
   
   "content_scripts": [
     {
-      "matches": ["http://*/", "https://*/", "https://shaaaaaaaaaaaaa.com/api/check/"],
+       "matches": ["*://*/*"],
       //"css": [],
-      "js": ["app.js"]
+      "js": ["app.js"],
+      "run_at": "document_start"
     }
   ],
+  "background": {
+      "scripts": ["icon-swap.js"],
+      "persistent": true
+    },
   "browser_action": {
     "default_icon": "icon.png"
   },
