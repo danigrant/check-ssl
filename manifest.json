@@ -1,22 +1,18 @@
 {
   "manifest_version": 2,
-
-  "name": "shaaaaaaaaaaaaa",
-  "description": "shaaaaaaaaaaaaa for chrome extension",
-  "version": "2.0",
-  
+  "name": "SSL Check",
+  "description": "Checks if websites have weak SHA-1 SSL certificates.",
+  "version": "1.0",
   "permissions": [
     "https://*/",
     "http://*/",
     "https://shaaaaaaaaaaaaa.com/api/check/*",
     "tabs"
   ],
-  
   "content_scripts": [
     {
       "matches": ["*://*/*"],
       "js": ["app.js"]
-      // "run_at": "document_start"
     }
   ],
   "background": {

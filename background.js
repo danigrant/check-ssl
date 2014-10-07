@@ -1,20 +1,20 @@
-//listen for tab changes
+//listens for tab change
 chrome.tabs.onActivated.addListener(function() {
 	chrome.browserAction.setBadgeBackgroundColor({color: [255,0,0,255]});
 	chrome.tabs.executeScript({file: "app.js"}, function() {
+        //on error - log error message and set badge to transparent
         if (chrome.runtime.lastError) {
         	chrome.browserAction.setBadgeBackgroundColor({color: [0,0,0,0]});
         	chrome.browserAction.setBadgeText({text: ""});
             console.error(chrome.runtime.lastError.message);
         }
     });
-		console.log("tab changed");
 });
 
-//at tab change, the app.js file will send back a message with what should go in badge
+
 chrome.runtime.onMessage.addListener(
   function(request, sender) {
-  	console.log("SETTING ICON");
+    //log diagnosis to badge
     if (request.diagnosis == "bad") {
       chrome.browserAction.setBadgeText({text: "bad"});
     }
