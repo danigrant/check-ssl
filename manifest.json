@@ -1,6 +1,7 @@
 {
   "manifest_version": 2,
-  "name": "SSL Check",
+  "name": "Check SSL",
+  "short_name": "Check SSL",
   "description": "Checks if websites have weak SHA-1 SSL certificates.",
   "version": "1.0",
   "permissions": [
