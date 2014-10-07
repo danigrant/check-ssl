@@ -9,24 +9,22 @@
     "https://*/",
     "http://*/",
     "https://shaaaaaaaaaaaaa.com/api/check/*",
-    "storage"
+    "tabs"
   ],
   
   "content_scripts": [
     {
-       "matches": ["*://*/*"],
-      //"css": [],
-      "js": ["app.js"],
-      "run_at": "document_start"
+      "matches": ["*://*/*"],
+      "js": ["app.js"]
+      // "run_at": "document_start"
     }
   ],
   "background": {
-      "scripts": ["icon-swap.js"],
-      "persistent": true
+      "scripts": ["background.js"],
+      "persistent": false
     },
   "browser_action": {
     "default_icon": "icon.png"
   },
-  "web_accessible_resources": ["https://shaaaaaaaaaaaaa.com/api/check/*"] ,
-  "permissions":["tabs","<all_urls>"]
+  "web_accessible_resources": ["https://shaaaaaaaaaaaaa.com/api/check/*"]
 }
