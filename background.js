@@ -1,12 +1,14 @@
 //listen for tab changes
 chrome.tabs.onActivated.addListener(function() {
-	try{
-		chrome.tabs.executeScript({file: "app.js"});
+	chrome.browserAction.setBadgeBackgroundColor({color: [255,0,0,255]});
+	chrome.tabs.executeScript({file: "app.js"}, function() {
+        if (chrome.runtime.lastError) {
+        	chrome.browserAction.setBadgeBackgroundColor({color: [0,0,0,0]});
+        	chrome.browserAction.setBadgeText({text: ""});
+            console.error(chrome.runtime.lastError.message);
+        }
+    });
 		console.log("tab changed");
-	}
-	catch(e) {
-		throw "incorrect input";
-	}
 });
 
 //at tab change, the app.js file will send back a message with what should go in badge
